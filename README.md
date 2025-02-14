@@ -29,9 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cleanup Old Images
-        uses: Frank-Gu-81/ecr-cleanup-tool@v1
+        uses: Frank-Gu-81/aws-ecr-image-cleaner@v1.0.0
         with:
-          repository-name: "my-ecr-repo"
+          repository-name: "ecr-repo-to-cleanup"
           keep-images: 3
 ```
 
