@@ -1,0 +1,22 @@
+name: "AWS ECR Images Cleanup"
+description: "Delete old images from an AWS ECR repository, keeping only the latest N images."
+author: "Shaopeng Gu"
+branding:
+  icon: "trash"
+  color: "blue"
+
+inputs:
+  repository-name:
+    description: "The name of the AWS ECR repository to clean up"
+    required: true
+  keep-images:
+    description: "The number of most recent images to keep (default: 2)"
+    required: false
+    default: "2"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "${{ inputs.repository-name }}"
+    - "${{ inputs.keep-images }}"
